@@ -20,6 +20,7 @@ var Home = React.createClass({
 
 	logOut: function () {
 	    ref.unauth();
+	    console.log("signed out?");
 	    this.transitionTo('sign_in');
 	  },
 

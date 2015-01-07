@@ -19,17 +19,34 @@ var SignUp = React.createClass({
 		  handleForm: function(e) {
 		    event.preventDefault();
 
+		    userEmail = this.refs.email.getDOMNode().value,
+		    userPassword = this.refs.password.getDOMNode().value,
+
 			ref.createUser({
-		      email: this.refs.email.getDOMNode().value,
-		      password: this.refs.password.getDOMNode().value,
+		      email: userEmail,
+		      password: userPassword,
 			}, function(error) {
 			  if (error === null) {
-			    console.log("User created successfully");
+				    console.log("User created successfully");
+					ref.authWithPassword({
+					  email: userEmail,
+					  password: userPassword,
+					}, function(error, authData) {
+					  if (error) {
+					    console.log("Login Failed!", error);
+					  } else {
+					    console.log("Authenticated successfully with payload:", authData);
+					    {this.transitionTo('App')}	
+					  }
+					});
 			  } else {
 			    console.log("Error creating user:", error);
 			    this.refs.userForm.getDOMNode().reset();
 			  }
 			});
+
+
+
 		  },
 
 	render: function() {
