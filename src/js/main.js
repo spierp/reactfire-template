@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
-var App = require('./components/app');
 
+var App = require('./components/app');
 var Sign_In = require('./components/authentication/app-signin.js');
 var Sign_Up = require('./components/authentication/app-signup.js');
 var Home = require('./components/app-home.js');
