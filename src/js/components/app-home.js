@@ -28,7 +28,11 @@ var Home = React.createClass({
 		);
 		}
 		else {
-		this.transitionTo('sign_up');	
+			return (	
+			<div>
+			{this.transitionTo('sign_up')}	
+			</div>
+		);
 		}
 	}
 });
